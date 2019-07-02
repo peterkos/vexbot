@@ -16,6 +16,7 @@
 		D7EE8ADB22CBE69A00859AE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7EE8ADA22CBE69A00859AE3 /* Assets.xcassets */; };
 		D7EE8ADE22CBE69A00859AE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7EE8ADC22CBE69A00859AE3 /* LaunchScreen.storyboard */; };
 		D7EE8AE722CBEBBE00859AE3 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = D7EE8AE622CBEBBE00859AE3 /* PromiseKit */; };
+		D7EE8AEA22CBECB200859AE3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D7EE8AE922CBECB200859AE3 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7EE8AE722CBEBBE00859AE3 /* PromiseKit in Frameworks */,
+				D7EE8AEA22CBECB200859AE3 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +95,7 @@
 			name = "noops-vexbot";
 			packageProductDependencies = (
 				D7EE8AE622CBEBBE00859AE3 /* PromiseKit */,
+				D7EE8AE922CBECB200859AE3 /* Alamofire */,
 			);
 			productName = "noops-vexbot";
 			productReference = D7EE8ACA22CBE69900859AE3 /* noops-vexbot.app */;
@@ -124,6 +127,7 @@
 			mainGroup = D7EE8AC122CBE69900859AE3;
 			packageReferences = (
 				D7EE8AE522CBEBBE00859AE3 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				D7EE8AE822CBECB200859AE3 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = D7EE8ACB22CBE69900859AE3 /* Products */;
 			projectDirPath = "";
@@ -364,6 +368,14 @@
 				minimumVersion = 6.10.0;
 			};
 		};
+		D7EE8AE822CBECB200859AE3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.8.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -371,6 +383,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D7EE8AE522CBEBBE00859AE3 /* XCRemoteSwiftPackageReference "PromiseKit" */;
 			productName = PromiseKit;
+		};
+		D7EE8AE922CBECB200859AE3 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D7EE8AE822CBECB200859AE3 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
