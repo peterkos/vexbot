@@ -43,41 +43,68 @@ class GameScene: SKScene {
 
     override func didMove(to view: SKView) {
 
+
+		// Configure scene anchor point to DEVICE bottom-left
+		// @FIXME: insets are 0?
+//		let insets = view.safeAreaInsets
+		let bounds = UIScreen.main.bounds
+//		self.anchorPoint = CGPoint(x: insets.left, y: insets.bottom)
+//		print("bottom: \(insets.bottom)")
+//		print("left: \(insets.left)")
+//		print("top: \(insets.top)")
+
+		// Workaround: manual offsets
+		self.anchorPoint = CGPoint(x: 0.1, y: 0.1)
+
+
 		// Grab the data
 		// (this took way too long to learn)
 		firstly {
-			Alamofire.request("https://api.noopschallenge.com/vexbot", method: .get, parameters: ["count": 100]).responseDecodable(Noop.self)
+
+			Alamofire.request("https://api.noopschallenge.com/vexbot",
+							  method: .get,
+							  parameters: ["count": 10, "connected": true, "width": bounds.maxX, "height": bounds.maxY]).responseDecodable(Noop.self)
+
 		}.done { noop in
 
-			// Draw things
-			for (index, vector) in noop.vectors.enumerated() {
-
-				let vectorNode = SKShapeNode()
-				let path = CGMutablePath()
-				path.move(to: CGPoint(x: vector.a.x, y: vector.a.y))
-				path.addLine(to: CGPoint(x: vector.b.x, y: vector.b.y))
-				vectorNode.path = path
-				vectorNode.strokeColor = .white
-
-				// Configure vector metadata
-				vectorNode.name = "vector \(index + 1)"
-				self.addChild(vectorNode)
-
-				// Finally, append ot our collection of nodes
-				self.vectors.append(vectorNode)
-
-			}
-
-			print("got the lines!")
-
-
-
+			self.drawVectors(noop.vectors)
+			
 		}.catch { error in
 			print(error)
 			return
 		}
 
     }
+
+
+	func drawVectors(_ vectors: [NoopVector]) {
+
+		// Draw things
+		for (index, vector) in vectors.enumerated() {
+
+			let vectorNode = SKShapeNode()
+			let path = CGMutablePath()
+
+			path.move(to: CGPoint(x: vector.a.x, y: vector.a.y))
+			path.addLine(to: CGPoint(x: vector.b.x, y: vector.b.y))
+
+			print(path)
+
+			vectorNode.path = path
+			vectorNode.strokeColor = .white
+			vectorNode.lineWidth = 5.0
+
+			// Configure vector metadata
+			vectorNode.name = "vector \(index + 1)"
+			self.addChild(vectorNode)
+
+			// Finally, append to our collection of nodes
+			self.vectors.append(vectorNode)
+
+		}
+
+		print("got the lines!")
+	}
 
 
     func touchDown(atPoint pos : CGPoint) {
