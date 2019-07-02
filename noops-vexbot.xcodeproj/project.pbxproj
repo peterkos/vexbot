@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		D7EE8AD922CBE69900859AE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7EE8AD722CBE69900859AE3 /* Main.storyboard */; };
 		D7EE8ADB22CBE69A00859AE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7EE8ADA22CBE69A00859AE3 /* Assets.xcassets */; };
 		D7EE8ADE22CBE69A00859AE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7EE8ADC22CBE69A00859AE3 /* LaunchScreen.storyboard */; };
+		D7EE8AE722CBEBBE00859AE3 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = D7EE8AE622CBEBBE00859AE3 /* PromiseKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7EE8AE722CBEBBE00859AE3 /* PromiseKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +91,9 @@
 			dependencies = (
 			);
 			name = "noops-vexbot";
+			packageProductDependencies = (
+				D7EE8AE622CBEBBE00859AE3 /* PromiseKit */,
+			);
 			productName = "noops-vexbot";
 			productReference = D7EE8ACA22CBE69900859AE3 /* noops-vexbot.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +122,9 @@
 				Base,
 			);
 			mainGroup = D7EE8AC122CBE69900859AE3;
+			packageReferences = (
+				D7EE8AE522CBEBBE00859AE3 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+			);
 			productRefGroup = D7EE8ACB22CBE69900859AE3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -346,6 +354,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D7EE8AE522CBEBBE00859AE3 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D7EE8AE622CBEBBE00859AE3 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D7EE8AE522CBEBBE00859AE3 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D7EE8AC222CBE69900859AE3 /* Project object */;
 }
