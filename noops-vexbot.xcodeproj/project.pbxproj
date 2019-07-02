@@ -17,6 +17,7 @@
 		D7EE8ADE22CBE69A00859AE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7EE8ADC22CBE69A00859AE3 /* LaunchScreen.storyboard */; };
 		D7EE8AE722CBEBBE00859AE3 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = D7EE8AE622CBEBBE00859AE3 /* PromiseKit */; };
 		D7EE8AEA22CBECB200859AE3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D7EE8AE922CBECB200859AE3 /* Alamofire */; };
+		D7EE8AF022CC0FAC00859AE3 /* PMKAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D7EE8AEF22CC0FAC00859AE3 /* PMKAlamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 			files = (
 				D7EE8AE722CBEBBE00859AE3 /* PromiseKit in Frameworks */,
 				D7EE8AEA22CBECB200859AE3 /* Alamofire in Frameworks */,
+				D7EE8AF022CC0FAC00859AE3 /* PMKAlamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +98,7 @@
 			packageProductDependencies = (
 				D7EE8AE622CBEBBE00859AE3 /* PromiseKit */,
 				D7EE8AE922CBECB200859AE3 /* Alamofire */,
+				D7EE8AEF22CC0FAC00859AE3 /* PMKAlamofire */,
 			);
 			productName = "noops-vexbot";
 			productReference = D7EE8ACA22CBE69900859AE3 /* noops-vexbot.app */;
@@ -128,6 +131,7 @@
 			packageReferences = (
 				D7EE8AE522CBEBBE00859AE3 /* XCRemoteSwiftPackageReference "PromiseKit" */,
 				D7EE8AE822CBECB200859AE3 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D7EE8AEE22CC0FAC00859AE3 /* XCRemoteSwiftPackageReference "PMKAlamofire" */,
 			);
 			productRefGroup = D7EE8ACB22CBE69900859AE3 /* Products */;
 			projectDirPath = "";
@@ -243,6 +247,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -296,6 +301,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -376,6 +382,14 @@
 				minimumVersion = 4.8.2;
 			};
 		};
+		D7EE8AEE22CC0FAC00859AE3 /* XCRemoteSwiftPackageReference "PMKAlamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PromiseKit/PMKAlamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -388,6 +402,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D7EE8AE822CBECB200859AE3 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		D7EE8AEF22CC0FAC00859AE3 /* PMKAlamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D7EE8AEE22CC0FAC00859AE3 /* XCRemoteSwiftPackageReference "PMKAlamofire" */;
+			productName = PMKAlamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

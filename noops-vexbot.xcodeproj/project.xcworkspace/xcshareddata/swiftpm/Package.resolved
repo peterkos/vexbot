@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "PMKAlamofire",
+        "repositoryURL": "https://github.com/PromiseKit/PMKAlamofire",
+        "state": {
+          "branch": null,
+          "revision": "15a5ab2c243b73d875040897c56fa4f3f339808f",
+          "version": "3.2.4"
+        }
+      },
+      {
         "package": "PromiseKit",
         "repositoryURL": "https://github.com/mxcl/PromiseKit",
         "state": {

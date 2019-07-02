@@ -9,7 +9,26 @@
 import SpriteKit
 import GameplayKit
 
+import Alamofire
+import PromiseKit
+import PMKAlamofire
+
 class GameScene: SKScene {
+
+	struct Noop: Decodable {
+		var vectors: [NoopVector]
+	}
+
+	struct NoopVector: Decodable {
+		var a: Coordinate
+		var b: Coordinate
+		var speed: Int
+	}
+
+	struct Coordinate: Decodable {
+		var x: Int
+		var y: Int
+	}
     
     override func didMove(to view: SKView) {
 
@@ -19,10 +38,20 @@ class GameScene: SKScene {
 
 		self.addChild(rectNode)
 
+		// Grab the data
+		// (this took way too long to learn)
+		firstly {
+			Alamofire.request("https://api.noopschallenge.com/vexbot", method: .get).responseDecodable(Noop.self)
+		}.done { noop in
+			print(noop)
+		}.catch { error in
+			print(error)
+			return
+		}
 
     }
-    
-    
+
+
     func touchDown(atPoint pos : CGPoint) {
     }
     
