@@ -15,6 +15,7 @@ import PMKAlamofire
 
 class GameScene: SKScene {
 
+	// MARK: Models
 	struct Noop: Decodable {
 		var vectors: [NoopVector]
 	}
@@ -30,17 +31,20 @@ class GameScene: SKScene {
 		var y: Int
 	}
 
+
+	// MARK: Drawing models
 	var vectors = [SKShapeNode]()
 
 	let actions = SKAction.sequence([
-		SKAction.fadeAlpha(to: 0.0, duration: 0.1),
-		SKAction.fadeAlpha(to: 1.0, duration: 0.5),
-		SKAction.fadeAlpha(to: 0.5, duration: 0.1),
-		SKAction.wait(forDuration: 0.5),
+		SKAction.rotate(byAngle: 0.1, duration: 0.3),
+		SKAction.rotate(byAngle: -0.1, duration: 0.3),
+		SKAction.wait(forDuration: 0.5) // @FIXME: Wait does not work?
 	])
 
 	var currentVector: SKShapeNode?
 
+
+	// MARK: SpriteKit functions
     override func didMove(to view: SKView) {
 
 
@@ -57,19 +61,26 @@ class GameScene: SKScene {
 		self.anchorPoint = CGPoint(x: 0.1, y: 0.1)
 
 
+		// This is outside firstly becuase I am bad at promises
+		// (Need to decode the syntax a bit)
+		let params = ["count": 10, "connected": true, "width": bounds.maxX, "height": bounds.maxY] as Parameters
+
 		// Grab the data
 		// (this took way too long to learn)
 		firstly {
 
 			Alamofire.request("https://api.noopschallenge.com/vexbot",
 							  method: .get,
-							  parameters: ["count": 10, "connected": true, "width": bounds.maxX, "height": bounds.maxY]).responseDecodable(Noop.self)
+							  parameters: params).responseDecodable(Noop.self)
 
 		}.done { noop in
 
+			// Draw the noop!
 			self.drawVectors(noop.vectors)
-			
+
 		}.catch { error in
+
+			// Expert error handling
 			print(error)
 			return
 		}
@@ -77,6 +88,7 @@ class GameScene: SKScene {
     }
 
 
+	// Helper function to do actual drawing
 	func drawVectors(_ vectors: [NoopVector]) {
 
 		// Draw things
@@ -107,6 +119,7 @@ class GameScene: SKScene {
 	}
 
 
+	// MARK: Interaction functions
     func touchDown(atPoint pos : CGPoint) {
 
 		for node in self.children {
